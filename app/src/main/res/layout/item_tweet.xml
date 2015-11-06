@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:focusable="false"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/ivUserImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitXY"
+        android:background="#ff6fefff"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:id="@+id/tvUserName"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ivUserImage"
+        android:layout_toEndOf="@+id/ivUserImage"
+        android:textColorLink="#ff000000"
+        android:singleLine="false"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="ScreenName"
+        android:id="@+id/tvUserScreenName"
+        android:textSize="10dp"
+        android:textColor="#5f000000"
+        android:textAlignment="center"
+        android:layout_above="@+id/tvTweetBody"
+        android:layout_toRightOf="@+id/tvUserName"
+        android:layout_toEndOf="@+id/tvUserName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="body"
+        android:id="@+id/tvTweetBody"
+        android:layout_below="@+id/tvUserName"
+        android:layout_toRightOf="@+id/ivUserImage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/ibtnReply"
+        android:ellipsize="end"
+        android:lines="2"
+        android:longClickable="false"
+        android:minLines="1"
+        android:maxLines="3" />
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ibtnReply"
+        android:layout_alignBottom="@+id/ivUserImage"
+        android:layout_toRightOf="@+id/ivUserImage"
+        android:layout_toEndOf="@+id/ivUserImage"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_reply"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/ivTweetLike"
+        android:layout_alignBottom="@+id/ibtnReply"
+        android:layout_toRightOf="@+id/ibtnReply"
+        android:layout_toEndOf="@+id/ibtnReply"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_love"
+        android:layout_marginLeft="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Likes"
+        android:id="@+id/tvTweetLikeNum"
+        android:layout_alignBottom="@+id/ivTweetLike"
+        android:layout_toRightOf="@+id/ivTweetLike"
+        android:layout_toEndOf="@+id/ivTweetLike"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TimeStamp"
+        android:id="@+id/tvTimeStamp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:lines="1"
+        android:linksClickable="false"
+        android:maxLines="1"
+        android:minLines="1"
+        android:textColor="#6f000000"
+        android:textIsSelectable="false"
+        android:textSize="10sp" />
+
+</RelativeLayout>

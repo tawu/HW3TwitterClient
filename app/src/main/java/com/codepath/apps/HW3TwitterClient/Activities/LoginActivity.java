@@ -1,14 +1,16 @@
 package com.codepath.apps.HW3TwitterClient.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
 import com.codepath.apps.HW3TwitterClient.R;
-import com.codepath.apps.HW3TwitterClient.REST.RestClient;
+import com.codepath.apps.HW3TwitterClient.REST.TwitterClient;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 
-public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
+// where user will sign into twitter
+public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,10 @@ public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		// Intent i = new Intent(this, PhotosActivity.class);
-		// startActivity(i);
+		Intent i = new Intent(this, TimelineActivity.class);
+		startActivity(i);
+
+		//Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
 	}
 
 	// OAuth authentication flow failed, handle the error
