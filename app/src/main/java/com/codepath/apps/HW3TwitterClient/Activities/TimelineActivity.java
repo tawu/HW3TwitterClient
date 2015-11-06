@@ -1,11 +1,13 @@
 package com.codepath.apps.HW3TwitterClient.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.codepath.apps.HW3TwitterClient.R;
 import com.codepath.apps.HW3TwitterClient.Adapter.TweetsArrayAdapter;
@@ -81,6 +83,14 @@ public class TimelineActivity extends ActionBarActivity {
                 Log.d("DEBUG", errorResponse.toString());
             }
         });
+    }
+
+    public void onComposeAction(MenuItem mi)
+    {
+        // handle click here
+        Intent intent = new Intent(TimelineActivity.this, ComposeActivity.class);
+        Toast.makeText(TimelineActivity.this, "Compose",Toast.LENGTH_SHORT).show();
+        //startActivityForResult(intent, RESULT_OK);
     }
 
     @Override

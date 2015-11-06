@@ -8,6 +8,7 @@
         android:id="@+id/action_compose"
         android:title="@string/compose"
         android:icon="@mipmap/ic_compose"
+        android:onClick="onComposeAction"
         android:orderInCategory="100"
         app:showAsAction="ifRoom" />
 
