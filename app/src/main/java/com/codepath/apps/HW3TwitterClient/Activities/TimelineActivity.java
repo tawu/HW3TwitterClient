@@ -89,8 +89,8 @@ public class TimelineActivity extends ActionBarActivity {
     {
         // handle click here
         Intent intent = new Intent(TimelineActivity.this, ComposeTweetActivity.class);
-        Toast.makeText(TimelineActivity.this, "Compose",Toast.LENGTH_SHORT).show();
-        //startActivityForResult(intent, RESULT_OK);
+        //Toast.makeText(TimelineActivity.this, "Compose",Toast.LENGTH_SHORT).show();
+        startActivityForResult(intent, RESULT_OK);
     }
 
     @Override
@@ -108,10 +108,10 @@ public class TimelineActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-/*        if (id == R.id.action_compose) {
+        if (id == R.id.action_compose) {
             return true;
         }
-*/
+
         return super.onOptionsItemSelected(item);
     }
 }
