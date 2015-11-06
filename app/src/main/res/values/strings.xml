@@ -13,4 +13,5 @@
 
     <string name="compose">Compose</string>
     <string name="home">Home</string>
+    <string name="title_activity_compose_tweet">ComposeTweetActivity</string>
 </resources>

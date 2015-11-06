@@ -221,6 +221,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/Users/tawu/workdir/AndroidProject/CodePathProject/HW3TwitterClient/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_compose_tweet">ComposeTweetActivity</string>
     <string name="title_activity_timeline">Home TimeLine</string>
     <!-- From: file:/Users/tawu/workdir/AndroidProject/CodePathProject/HW3TwitterClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values/values.xml -->
     <eat-comment/>

@@ -10,7 +10,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -31,8 +30,8 @@
 
         <activity
             android:name=".Activities.LoginActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,6 +51,10 @@
         <activity
             android:name=".Activities.TimelineActivity"
             android:label="@string/title_activity_timeline" >
+        </activity>
+        <activity
+            android:name=".Activities.ComposeTweetActivity"
+            android:label="@string/title_activity_compose_tweet" >
         </activity>
     </application>
 

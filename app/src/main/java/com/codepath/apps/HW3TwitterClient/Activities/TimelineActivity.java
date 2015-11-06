@@ -88,7 +88,7 @@ public class TimelineActivity extends ActionBarActivity {
     public void onComposeAction(MenuItem mi)
     {
         // handle click here
-        Intent intent = new Intent(TimelineActivity.this, ComposeActivity.class);
+        Intent intent = new Intent(TimelineActivity.this, ComposeTweetActivity.class);
         Toast.makeText(TimelineActivity.this, "Compose",Toast.LENGTH_SHORT).show();
         //startActivityForResult(intent, RESULT_OK);
     }
