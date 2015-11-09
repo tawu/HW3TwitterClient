@@ -123,6 +123,7 @@ public class Tweet
             tweet.createat = jsonObject.getString("created_at");
             tweet.likesNum = jsonObject.getInt("favorite_count");
             tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+            //Log.d("DEBUG", "check 72Jzm");
         }
         catch(JSONException e)
         {

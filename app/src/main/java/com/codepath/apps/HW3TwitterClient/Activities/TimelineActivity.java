@@ -73,6 +73,8 @@ public class TimelineActivity extends ActionBarActivity {
                 aTweets.clear();
                 aTweets.addAll(Tweet.fromJSONArray(response));
 
+                Log.d("DEBUG", "Test");
+
             }
 
             // FAILURE
@@ -91,6 +93,11 @@ public class TimelineActivity extends ActionBarActivity {
         Intent intent = new Intent(TimelineActivity.this, ComposeTweetActivity.class);
         //Toast.makeText(TimelineActivity.this, "Compose",Toast.LENGTH_SHORT).show();
         startActivityForResult(intent, RESULT_OK);
+    }
+
+    public void onRefreshAction(MenuItem mi)
+    {
+        populateTimeLine();
     }
 
     @Override
