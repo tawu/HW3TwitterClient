@@ -84,7 +84,7 @@ public class ComposeTweetActivity extends ActionBarActivity
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response)
             {
-                Toast.makeText(getBaseContext(), "Tweet posted!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getBaseContext(), "Tweet posted!", Toast.LENGTH_SHORT).show();
                 Intent data = new Intent();
                 data.putExtra("response", response.toString());
                 setResult(RESULT_OK, data);
