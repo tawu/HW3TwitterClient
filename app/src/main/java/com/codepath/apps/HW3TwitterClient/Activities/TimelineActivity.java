@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.codepath.apps.HW3TwitterClient.Helper.EndlessScrollListener;
 import com.codepath.apps.HW3TwitterClient.R;
 import com.codepath.apps.HW3TwitterClient.Adapter.TweetsArrayAdapter;
 import com.codepath.apps.HW3TwitterClient.REST.TwitterClient;
@@ -49,27 +50,78 @@ public class TimelineActivity extends ActionBarActivity {
         //connect adapter to listview
         lvTweets.setAdapter(aTweets);
 
+        //set endless scroll event handler
+        lvTweets.setOnScrollListener(new EndlessScrollListener()
+                                     {
+                                         @Override
+                                         public boolean onLoadMore(int page, int totalItemsCount)
+                                         {
+                                             // Triggered only when new data needs to be appended to the list
+                                             // Add whatever code is needed to append new items to your AdapterView
+                                             customLoadMoreDataFromApi(page);
+                                             // or customLoadMoreDataFromApi(totalItemsCount);
+                                             return true; // ONLY if more data is actually being loaded; false otherwise.
+                                         }
+                                     }
+
+        );
+
+
         client = TwitterApplication.getRestClient();
         populateTimeLine();
     }
 
-    // send an API request to get the timeline json
-    // fill the listview by createing the tweet objects from the json
-    private void populateTimeLine()
-    {
 
-        client.getHomeTimeLine(new JsonHttpResponseHandler()
-        {
+    // Append more data into the adapter
+    public void customLoadMoreDataFromApi(int offset)
+    {
+        // This method probably sends out a network request and appends new data items to your adapter.
+        // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
+        // Deserialize API response and then construct new objects to append to the adapter
+
+        client.getHomeTimeLine(new JsonHttpResponseHandler() {
             // SUCCESS
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response)
-            {
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 //Log.d("DEBUG", response.toString());
 
                 //get JSON
                 //deserilize JSON
                 //create models and add to adapter
                 //load the model data into listview
+                aTweets.addAll(Tweet.fromJSONArray(response));
+
+                Log.d("DEBUG", "Test");
+
+            }
+
+            // FAILURE
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                Log.d("DEBUG", errorResponse.toString());
+            }
+        }, offset);
+
+    }
+
+
+    // send an API request to get the timeline json
+    // fill the listview by createing the tweet objects from the json
+    private void populateTimeLine()
+    {
+
+        client.getHomeTimeLine(new JsonHttpResponseHandler() {
+            // SUCCESS
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                //Log.d("DEBUG", response.toString());
+
+                //get JSON
+                //deserilize JSON
+                //create models and add to adapter
+                //load the model data into listview
+                tweets.clear();
                 aTweets.clear();
                 aTweets.addAll(Tweet.fromJSONArray(response));
 
@@ -80,11 +132,10 @@ public class TimelineActivity extends ActionBarActivity {
             // FAILURE
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse)
-            {
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                 Log.d("DEBUG", errorResponse.toString());
             }
-        });
+        }, 1);
     }
 
     public void onComposeAction(MenuItem mi)
